@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rythma Ekanayake — Creative Producer, Director, Writer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --ink-2: #333333;
+    --ink-3: #888888;
+    --rule: #ececec;
+    --accent: #8c1f2d; /* burgundy */
+    --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --hand: 'Caveat', cursive;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body { font-family: var(--display); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---- TOP BAR ---- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 32px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .brand {
+    font-family: var(--display); font-size: 18px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .brand .hand { font-family: var(--hand); font-size: 22px; color: var(--accent); text-transform: none; letter-spacing: 0; margin-left: 8px; display: inline-block; transform: rotate(-3deg); }
+  .nav {
+    display: flex; gap: 26px;
+    font-family: var(--display); font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav a { color: var(--ink-2); transition: color .2s; }
+  .nav a:hover { color: var(--accent); }
+  @media (max-width: 900px) { .nav { display: none; } }
+
+  /* ---- HERO ---- */
+  .hero {
+    padding: 160px 32px 100px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: end;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(80px, 14vw, 220px);
+    line-height: 0.88;
+    margin: 0;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .hero h1 .hand {
+    font-family: var(--hand); font-weight: 600;
+    color: var(--accent);
+    font-size: 0.55em; line-height: 1;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-4deg);
+    vertical-align: middle; margin-left: 0.1em;
+  }
+  .hero-meta { padding-bottom: 16px; }
+  .hero-tagline {
+    font-family: var(--display);
+    font-size: clamp(18px, 2vw, 26px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-2);
+    max-width: 28ch;
+  }
+  .hero-tagline .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.1em; letter-spacing: 0;
+    text-transform: none;
+    display: inline-block; transform: rotate(-2deg);
+  }
+
+  /* ---- SECTION ---- */
+  .section { padding: 120px 32px; border-bottom: 1px solid var(--rule); }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    max-width: 1440px;
+    margin: 0 auto 72px;
+    align-items: start;
+  }
+  .section-label {
+    font-family: var(--display); font-size: 14px; letter-spacing: 0.16em;
+    color: var(--ink-3); text-transform: uppercase;
+    padding-top: 16px;
+    border-top: 1px solid var(--ink);
+  }
+  .section-title {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(52px, 7vw, 104px);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .section-title .hand {
+    font-family: var(--hand); font-weight: 600;
+    color: var(--accent);
+    font-size: 0.85em;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-3deg);
+  }
+  .section-body { max-width: 1440px; margin: 0 auto; }
+
+  /* ---- ABOUT ---- */
+  .about-text {
+    max-width: 900px; margin: 0 auto;
+  }
+  .about-text p {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.65;
+    margin: 0 0 18px;
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text .hand {
+    font-family: var(--hand); font-weight: 600;
+    color: var(--accent);
+    font-size: 1.15em;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block;
+  }
+
+  /* ---- SELECTED WORKS GRID ---- */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 56px 32px;
+  }
+  .work {
+    display: block;
+    position: relative;
+  }
+  .work .slot {
+    width: 100%;
+    background: #f1f1f1;
+    margin-bottom: 16px;
+    overflow: hidden;
+    display: block;
+  }
+  .work .work-meta {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  }
+  .work .work-title {
+    font-family: var(--display);
+    font-size: clamp(26px, 2.4vw, 36px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    transition: color .2s;
+  }
+  .work .work-title .hand {
+    font-family: var(--hand); font-weight: 600;
+    color: var(--accent);
+    font-size: 1.1em;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+    margin-left: 4px;
+  }
+  .work .work-role {
+    font-family: var(--hand);
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 24px;
+    line-height: 1;
+    white-space: nowrap;
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .work:hover .work-title { color: var(--accent); }
+
+  /* size variants */
+  .w-12 { grid-column: span 12; }
+  .w-8 { grid-column: span 8; }
+  .w-7 { grid-column: span 7; }
+  .w-6 { grid-column: span 6; }
+  .w-5 { grid-column: span 5; }
+  .w-4 { grid-column: span 4; }
+  .w-3 { grid-column: span 3; }
+
+  /* ---- FORMATS LIST ---- */
+  .formats-list { border-top: 1px solid var(--ink); }
+  .format-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--rule);
+    gap: 24px;
+    cursor: pointer;
+    transition: padding .2s, color .2s;
+  }
+  .format-row:hover { padding-left: 16px; }
+  .format-row:hover .fname { color: var(--accent); }
+  .format-row .fnum {
+    font-family: var(--display); font-size: 18px; color: var(--ink-3);
+    letter-spacing: 0.1em;
+  }
+  .format-row .fname {
+    font-family: var(--display);
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    transition: color .2s;
+  }
+  .format-row .fname .hand {
+    font-family: var(--hand); font-weight: 600;
+    color: var(--accent);
+    font-size: 0.85em;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-3deg);
+    margin-left: 8px;
+  }
+  .format-row .farrow {
+    font-family: var(--display); font-size: 28px; text-align: right;
+    color: var(--ink-3);
+    transition: color .2s, transform .2s;
+  }
+  .format-row:hover .farrow { color: var(--accent); transform: translateX(8px); }
+
+  /* ---- YOUTUBE THUMBNAILS ---- */
+  .doc-intro { max-width: 720px; margin-bottom: 56px; }
+  .doc-intro h3 {
+    font-family: var(--display);
+    font-size: clamp(48px, 5vw, 80px);
+    line-height: 0.95; margin: 0 0 24px;
+    text-transform: uppercase; letter-spacing: 0.015em; font-weight: 400;
+  }
+  .doc-intro h3 .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 0.9em; text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+  .doc-intro p {
+    font-family: var(--display);
+    font-size: clamp(18px, 1.6vw, 22px); line-height: 1.35;
+    text-transform: uppercase; letter-spacing: 0.01em;
+    color: var(--ink); margin: 0;
+  }
+  .doc-intro p .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.1em; text-transform: none; letter-spacing: 0;
+  }
+  .yt-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+    margin-bottom: 96px;
+  }
+  .yt-item { display: block; text-decoration: none; }
+  .yt-thumb {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    background: #e8e8e8; overflow: hidden; margin-bottom: 14px;
+  }
+  .yt-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .yt-thumb image-slot { position: absolute; inset: 0; }
+  .yt-play {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(0,0,0,0.65);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 18px; line-height: 1;
+    padding-left: 4px;
+    transition: background .2s, transform .2s;
+    pointer-events: none;
+  }
+  .yt-item:hover .yt-play { background: var(--accent); transform: translate(-50%,-50%) scale(1.08); }
+  .yt-season {
+    font-family: var(--display); font-size: 13px;
+    color: var(--ink-3); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .yt-label {
+    font-family: var(--display);
+    font-size: clamp(20px, 2vw, 28px);
+    text-transform: uppercase; letter-spacing: 0.015em; line-height: 1;
+    transition: color .2s;
+  }
+  .yt-label .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.05em; text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+  .yt-item:hover .yt-label { color: var(--accent); }
+  @media (max-width: 900px) { .yt-grid { grid-template-columns: 1fr; } }
+
+  /* ---- SHORT FORM / SOCIAL ---- */
+  .pod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 80px; }
+  .pod-item .slot { width: 100%; aspect-ratio: 1/1; margin-bottom: 16px; }
+  .pod-item h4 {
+    font-family: var(--display);
+    font-size: clamp(24px, 2.2vw, 30px);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    font-weight: 400;
+    transition: color .2s;
+  }
+  .pod-item h4 .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.1em; text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+  .pod-item:hover h4 { color: var(--accent); }
+
+  /* podcast feature */
+  .pod-feature {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: start;
+  }
+  .pod-detail h3 {
+    font-family: var(--display);
+    font-size: clamp(48px, 5vw, 80px);
+    line-height: 0.95; margin: 8px 0 24px;
+    text-transform: uppercase; letter-spacing: 0.01em; font-weight: 400;
+  }
+  .pod-detail h3 .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 0.9em; text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+  .pod-link {
+    display: inline-block; margin-top: 32px;
+    font-family: var(--display); font-size: clamp(14px, 1.3vw, 18px);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px; transition: opacity .2s;
+  }
+  .pod-link:hover { opacity: 0.65; }
+  @media (max-width: 900px) { .pod-feature { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* reel scroll */
+  .reel-header {
+    font-family: var(--display); font-size: 14px; letter-spacing: 0.16em;
+    color: var(--ink-3); text-transform: uppercase;
+    padding-top: 16px; border-top: 1px solid var(--rule);
+    margin-bottom: 28px;
+  }
+  .reel-scroll {
+    display: flex; gap: 20px;
+    overflow-x: auto; padding-bottom: 16px;
+    scrollbar-width: thin; scrollbar-color: var(--rule) transparent;
+  }
+  .reel-scroll::-webkit-scrollbar { height: 3px; }
+  .reel-scroll::-webkit-scrollbar-track { background: transparent; }
+  .reel-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
+  .reel-item {
+    flex: 0 0 180px; display: block; text-decoration: none;
+  }
+  .reel-item .reel-thumb {
+    width: 180px; aspect-ratio: 9/16;
+    background: #f1f1f1;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: opacity .2s;
+    position: relative;
+  }
+  .reel-item .reel-thumb image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .reel-item:hover .reel-thumb { opacity: 0.8; }
+  .reel-item .reel-title {
+    font-family: var(--display);
+    font-size: 16px; text-transform: uppercase; letter-spacing: 0.04em;
+    line-height: 1.1; transition: color .2s;
+  }
+  .reel-item:hover .reel-title { color: var(--accent); }
+  .reel-item .reel-platform {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 16px; letter-spacing: 0; margin-top: 4px; display: block;
+  }
+
+  /* ---- WRITING ---- */
+  .writing-list { display: flex; flex-direction: column; border-top: 1px solid var(--ink); }
+  .writing-item {
+    display: grid; grid-template-columns: 60px 1fr auto 80px;
+    gap: 32px; align-items: center;
+    padding: 36px 0; border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+    transition: padding .2s;
+  }
+  .writing-item:hover { padding-left: 16px; }
+  .writing-item .wn {
+    font-family: var(--display);
+    font-size: 18px; color: var(--ink-3); letter-spacing: 0.08em;
+  }
+  .writing-item .wtitle {
+    font-family: var(--display);
+    font-size: clamp(28px, 3.2vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    transition: color .2s;
+  }
+  .writing-item .wtitle .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1em; text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+  .writing-item .wpub {
+    display: flex; align-items: center; justify-content: flex-end;
+    white-space: nowrap;
+  }
+  .writing-item .wpub img {
+    height: 22px; width: auto; max-width: 120px;
+    object-fit: contain; object-position: center;
+    filter: grayscale(1); opacity: 0.55;
+    transition: filter .2s, opacity .2s;
+    display: block;
+  }
+  .writing-item:hover .wpub img { filter: grayscale(0); opacity: 1; }
+  .writing-item .warr {
+    font-family: var(--display); font-size: 24px;
+    text-align: right; color: var(--ink-3);
+    transition: color .2s, transform .2s;
+  }
+  .writing-item:hover .wtitle { color: var(--accent); }
+  .writing-item:hover .warr { color: var(--accent); transform: translateX(8px); }
+  @media (max-width: 900px) {
+    .writing-item { grid-template-columns: 40px 1fr 40px; }
+    .writing-item .wpub { display: none; }
+  }
+
+  /* ---- EVENTS ---- */
+  .events-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  }
+  .event-card { display: block; color: inherit; text-decoration: none; transition: opacity .2s; }
+  .event-card:hover { opacity: 0.8; }
+  .event-info { margin-top: 16px; }
+  .event-card h5 {
+    font-family: var(--display);
+    font-size: clamp(28px, 2.8vw, 42px);
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .event-card h5 .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.05em; text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+  .event-venue {
+    font-family: var(--display);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 4px;
+  }
+  @media (max-width: 900px) {
+    .events-pair { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ---- CAMPAIGNS / CLIENTS ---- */
+  .clients-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--ink);
+  }
+  .client {
+    aspect-ratio: 1.6 / 1;
+    display: grid; place-items: center;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--display);
+    font-size: clamp(20px, 1.8vw, 28px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-align: center;
+    transition: background .2s, color .2s;
+  }
+  .client:nth-child(6n) { border-right: none; }
+  .client:hover { background: var(--accent); color: #fff; }
+  .client .hand {
+    font-family: var(--hand); font-weight: 600;
+    color: var(--accent);
+    font-size: 1.3em; line-height: 1;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+  .client:hover .hand { color: #fff; }
+
+  .campaign-feature {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-bottom: 64px;
+  }
+  .campaign .slot { width: 100%; aspect-ratio: 3/4; margin-bottom: 14px; }
+  .campaign h5 {
+    font-family: var(--display);
+    font-size: clamp(26px, 2.4vw, 36px);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    font-weight: 400;
+  }
+  .campaign h5 .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.1em; text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
+
+  /* ---- CONTACT ---- */
+  .contact {
+    padding: 160px 32px 100px;
+    background: var(--bg);
+  }
+  .contact-grid {
+    max-width: 1440px; margin: 0 auto;
+  }
+  .contact h2 {
+    font-family: var(--display);
+    font-size: clamp(100px, 16vw, 260px);
+    line-height: 0.85;
+    margin: 0 0 64px;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    font-weight: 400;
+  }
+  .contact h2 .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 0.55em; line-height: 1;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-4deg);
+    vertical-align: middle; margin-left: 0.1em;
+  }
+  .contact-links {
+    display: flex; flex-direction: row; flex-wrap: wrap;
+    gap: 40px 56px;
+    border-top: 1px solid var(--ink);
+    padding-top: 28px;
+  }
+  .contact-links a {
+    font-family: var(--display);
+    font-size: clamp(18px, 1.6vw, 22px);
+    display: inline-flex; align-items: baseline; gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: color .2s;
+  }
+  .contact-links a:hover { color: var(--accent); }
+  .contact-links a .arrow {
+    font-family: var(--hand); color: var(--accent);
+    font-size: 22px; letter-spacing: 0;
+    text-transform: none;
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 28px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--display); font-size: 13px;
+    color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  footer a:hover { color: var(--accent); }
+  footer .hand {
+    font-family: var(--hand); color: var(--accent);
+    font-size: 22px; letter-spacing: 0;
+    text-transform: none; display: inline-block; transform: rotate(-2deg);
+  }
+
+  /* ---- SKILLS TAGLINE ---- */
+  .skills-line {
+    margin-top: 32px;
+    font-family: var(--display);
+    font-size: clamp(13px, 1.2vw, 16px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .skills-line .sep { color: var(--accent); margin: 0 10px; }
+
+  /* ---- PROJECT CARDS (documentary sub-items) ---- */
+  .proj-role {
+    font-family: var(--hand); font-weight: 600;
+    font-size: 18px; color: var(--accent);
+    margin: 10px 0 8px; display: block;
+  }
+  .proj-desc {
+    font-family: var(--display);
+    font-size: clamp(14px, 1.3vw, 17px);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .proj-tags {
+    margin-top: 12px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .proj-tag {
+    font-family: var(--display);
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+  }
+
+  /* ---- EDITORIAL SECTION ---- */
+  .ed-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .ed-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity .2s;
+  }
+  .ed-card:hover { opacity: 0.8; }
+  .ed-thumb {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    margin-bottom: 14px;
+    background: #e8e8e8;
+  }
+  .ed-thumb image-slot { width: 100%; height: 100%; display: block; }
+  .ed-cat {
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .ed-title {
+    font-family: var(--display);
+    font-size: clamp(18px, 1.6vw, 22px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .ed-title .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.1em; text-transform: none; letter-spacing: 0;
+    display: inline-block;
+  }
+  .ed-pub {
+    display: flex; align-items: center;
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+    min-height: 32px;
+  }
+  .ed-pub img {
+    height: 18px; width: auto;
+    filter: grayscale(1); opacity: 0.45;
+    transition: filter .2s, opacity .2s;
+    max-width: 100%;
+  }
+  .ed-card:hover .ed-pub img { filter: grayscale(0); opacity: 1; }
+  .ed-pub-name {
+    font-family: var(--display);
+    font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+  @media (max-width: 900px) {
+    .ed-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  /* ---- EDITORIAL THINKING (legacy, unused) ---- */
+  .editorial-body { max-width: 820px; margin-bottom: 64px; }
+  .editorial-body p {
+    font-family: var(--display);
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0 0 20px;
+    color: var(--ink);
+  }
+  .editorial-body p .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.1em; text-transform: none; letter-spacing: 0;
+    display: inline-block;
+  }
+  .approach-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 0 64px;
+    border-top: 1px solid var(--ink); padding-top: 40px;
+  }
+  .approach-item {
+    font-family: var(--display);
+    font-size: clamp(15px, 1.4vw, 19px);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink-2);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .approach-item::before {
+    content: '—';
+    font-family: var(--hand); color: var(--accent);
+    font-size: 1.4em; flex-shrink: 0;
+  }
+
+  /* ---- LEADERSHIP & CONSULTING ---- */
+  .lead-intro, .consult-intro {
+    max-width: 820px; margin-bottom: 56px;
+  }
+  .lead-intro p, .consult-intro p {
+    font-family: var(--display);
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0 0 16px; color: var(--ink);
+  }
+  .lead-intro p .hand, .consult-intro p .hand {
+    font-family: var(--hand); font-weight: 600; color: var(--accent);
+    font-size: 1.1em; text-transform: none; letter-spacing: 0;
+  }
+  .cap-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 48px; border-top: 1px solid var(--ink); padding-top: 40px;
+  }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 40px; border-top: 1px solid var(--ink); padding-top: 40px;
+  }
+  .cap-group-title {
+    font-family: var(--display); font-size: 13px;
+    letter-spacing: 0.18em; color: var(--ink-3);
+    text-transform: uppercase; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--ink);
+  }
+  .cap-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column;
+  }
+  .cap-list li {
+    font-family: var(--display);
+    font-size: clamp(15px, 1.4vw, 19px);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 12px 0; border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  @media (max-width: 900px) {
+    .cap-grid, .services-grid { grid-template-columns: 1fr; gap: 32px; }
+    .approach-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid, .about-text, .doc-detail, .events-feature, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .section-head { grid-template-columns: 1fr; gap: 16px; }
+    .pod-grid, .events-list, .campaign-feature { grid-template-columns: 1fr 1fr; }
+    .clients-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .client:nth-child(6n) { border-right: 1px solid var(--rule); }
+    .client:nth-child(3n) { border-right: none; }
+    .w-12, .w-8, .w-7, .w-6, .w-5, .w-4, .w-3 { grid-column: span 12; }
+    .format-row { grid-template-columns: 40px 1fr 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <a class="brand" href="#top">Rythma Ekanayake<span class="hand">/ portfolio</span></a>
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#documentary">Documentary</a>
+    <a href="#podcast">Podcast</a>
+    <a href="#editorial">Editorial</a>
+    <a href="#social">Features</a>
+    <a href="#events">Events</a>
+    <a href="#consulting">Consulting</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <h1>
+        Rythma<br>
+        Ekanayake<span class="hand">— hi there</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-tagline">Creative Producer, Director &amp; <span class="hand">Editorial Strategist</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-head">
+    <div class="section-label">About</div>
+  </div>
+  <div class="section-body">
+    <div class="about-text">
+      <p>I work across film, digital media, and editorial storytelling, developing <span class="hand">narrative-driven</span> work from concept through execution. With a background in philosophy and nearly a decade in media, I'm drawn to stories rooted in culture, identity, and human experience.</p>
+      <p>My practice spans creative direction, production, curation, and editorial development. I approach storytelling as both a creative and structural process — shaping the perspective, tone, and emotional rhythm of a project as much as its final form.</p>
+      <p>Alongside producing and directing, I work closely with narrative development and editorial refinement, helping build work that feels culturally grounded, <span class="hand">emotionally intelligent</span>, and deeply human.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK (removed) -->
+<!-- <section class="section" id="work">
+  <div class="section-head">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title" style="font-size: 60px">Selected <span class="hand">Works</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="works-grid">
+
+      <a class="work w-6" href="#documentary">
+        <image-slot id="A-work-everything" placeholder="Everything Has Changed — film still" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="work-meta">
+          <div class="work-title">Everything <span class="hand">has changed</span></div>
+          <div class="work-role">director</div>
+        </div>
+      </a>
+
+      <a class="work w-6" href="#documentary">
+        <image-slot id="A-work-firdaus" placeholder="Firdaus Orchestra documentary" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="work-meta">
+          <div class="work-title">Firdaus Orchestra</div>
+          <div class="work-role">producer</div>
+        </div>
+      </a>
+
+      <a class="work w-6" href="#documentary">
+        <image-slot id="A-work-freedom" placeholder="Freedom By Design short film" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="work-meta">
+          <div class="work-title"><span class="hand">Freedom</span> By Design</div>
+          <div class="work-role">producer</div>
+        </div>
+      </a>
+
+      <a class="work w-6" href="#podcast">
+        <image-slot id="A-work-sage" placeholder="Sage Takes Thyme — podcast art" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="work-meta">
+          <div class="work-title">Sage Takes <span class="hand">Thyme</span></div>
+          <div class="work-role">producer</div>
+        </div>
+      </a>
+
+      <a class="work w-6" href="#writing">
+        <image-slot id="A-work-dazed" placeholder="Dazed MENA — Voices From The Brink" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="work-meta">
+          <div class="work-title">Voices From <span class="hand">The Brink</span></div>
+          <div class="work-role">writer</div>
+        </div>
+      </a>
+
+      <a class="work w-6" href="#campaigns">
+        <image-slot id="A-work-diesel" placeholder="Diesel editorial" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="work-meta">
+          <div class="work-title"><span class="hand">Diesel</span></div>
+          <div class="work-role">producer</div>
+        </div>
+      </a>
+
+      <a class="work w-6" href="#events">
+        <image-slot id="A-work-soledxb" placeholder="SoleDXB activation" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="work-meta">
+          <div class="work-title">SoleDXB</div>
+          <div class="work-role">curator</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+-->
+
+<!-- FORMATS INDEX -->
+<section class="section" id="formats">
+  <div class="section-head">
+    <div class="section-label"></div>
+    <h2 class="section-title">Selected <span class="hand">Works</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="formats-list">
+      <a class="format-row" href="#documentary">
+        <span class="fnum">01</span>
+        <span class="fname"><span class="hand">Documentary</span></span>
+        <span class="farrow">→</span>
+      </a>
+      <a class="format-row" href="#podcast">
+        <span class="fnum">02</span>
+        <span class="fname">Podcast</span>
+        <span class="farrow">→</span>
+      </a>
+      <a class="format-row" href="#editorial">
+        <span class="fnum">03</span>
+        <span class="fname">Editorial <span class="hand">— writing &amp; campaigns</span></span>
+        <span class="farrow">→</span>
+      </a>
+      <a class="format-row" href="#events">
+        <span class="fnum">04</span>
+        <span class="fname">Events</span>
+        <span class="farrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTARY -->
+<section class="section" id="documentary">
+  <div class="section-head">
+    <div class="section-label">Documentary</div>
+    <h2 class="section-title">Directing &amp; long-form <span class="hand">storytelling</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="doc-intro">
+      <h3><span class="hand">Everything</span><br>Has Changed</h3>
+      <span class="proj-role">Creative Producer / Director</span>
+      <p>An ongoing docu-series that travels from city to city to highlight the different ways in which our lives have changed drastically over the last decade, the realities we continue to carry with us and the new narratives we can <span class="hand">learn to adopt</span>.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Creative Development</span>
+        <span class="proj-tag">Direction</span>
+        <span class="proj-tag">Editorial Strategy</span>
+        <span class="proj-tag">Production Management</span>
+      </div>
+    </div>
+
+    <div class="yt-grid">
+      <a class="yt-item" href="https://www.youtube.com/watch?v=tTiWQa6Umok&list=PLceXkZ2guxFLyXZNavrIZAAeLV4xmV-LV&index=5" target="_blank" rel="noopener">
+        <div class="yt-thumb">
+          <img src="https://img.youtube.com/vi/tTiWQa6Umok/maxresdefault.jpg" alt="Diaspora Returns">
+          <div class="yt-play">▶</div>
+        </div>
+        <div class="yt-season">S/01</div>
+        <div class="yt-label">The Return of <span class="hand">Diaspora</span></div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=ohwv7zfYZvc&list=PLceXkZ2guxFLyXZNavrIZAAeLV4xmV-LV&index=1" target="_blank" rel="noopener">
+        <div class="yt-thumb">
+          <img src="https://img.youtube.com/vi/ohwv7zfYZvc/maxresdefault.jpg" alt="Cairo Creative Community">
+          <div class="yt-play">▶</div>
+        </div>
+        <div class="yt-season">S/02</div>
+        <div class="yt-label"><span class="hand">Cairo's</span> Creative Community</div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=OmooHhOFzt0&list=PLceXkZ2guxFLyXZNavrIZAAeLV4xmV-LV&index=10" target="_blank" rel="noopener">
+        <div class="yt-thumb">
+          <img src="https://img.youtube.com/vi/OmooHhOFzt0/maxresdefault.jpg" alt="Sounds of Saudi Arabia">
+          <div class="yt-play">▶</div>
+        </div>
+        <div class="yt-season">S/03</div>
+        <div class="yt-label">The Sounds of <span class="hand">Saudi Arabia</span></div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=oHX4AclWch8&list=PLceXkZ2guxFLyXZNavrIZAAeLV4xmV-LV&index=6" target="_blank" rel="noopener">
+        <div class="yt-thumb">
+          <img src="https://img.youtube.com/vi/oHX4AclWch8/maxresdefault.jpg" alt="We Belong to the Land">
+          <div class="yt-play">▶</div>
+        </div>
+        <div class="yt-season">S/04</div>
+        <div class="yt-label">We Belong to <span class="hand">the Land</span></div>
+      </a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 96px;">
+      <a class="yt-item" href="https://www.youtube.com/watch?v=AvryvwgN4SI" target="_blank" rel="noopener">
+        <div class="yt-thumb">
+          <img src="https://img.youtube.com/vi/AvryvwgN4SI/maxresdefault.jpg" alt="Firdaus Orchestra">
+          <div class="yt-play">▶</div>
+        </div>
+        <div style="margin-top: 14px;">
+          <div class="yt-label">Firdaus <span class="hand">Orchestra</span></div>
+          <span class="proj-role">Producer / Director</span>
+          <p class="proj-desc" style="margin-top:8px;">Firdaus is an all-women ensemble that thrilled audiences during Expo 2020 Dubai. With 24 nationalities, Firdaus Orchestra thrives on its cultural diversity, bringing classically trained musicians from across the world to redefine the way different genres and disciplines of music come together to create in harmony.</p>
+        </div>
+      </a>
+      <a class="yt-item" href="https://www.dubaidesignweek.ae/programme/2024/freedom-design/" target="_blank" rel="noopener">
+        <div class="yt-thumb">
+          <image-slot id="A-doc-freedom" placeholder="Freedom By Design" style="width:100%;height:100%;"></image-slot>
+          <div class="yt-play">↗</div>
+        </div>
+        <div style="margin-top: 14px;">
+          <div class="yt-label"><span class="hand">Freedom</span> By Design</div>
+          <span class="proj-role">Executive Producer / Creative Direction</span>
+          <p class="proj-desc" style="margin-top:8px;">A multi-format film project exploring the stories of women across the MENA region through archive, testimony, and visual storytelling. Led creative development, narrative structure, and editorial direction throughout.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST -->
+<section class="section" id="podcast">
+  <div class="section-head">
+    <div class="section-label">Podcast</div>
+    <h2 class="section-title">Podcast <span class="hand">production</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="pod-feature">
+      <a href="https://www.youtube.com/watch?v=9NZsoHThV0M&t=45s" target="_blank" rel="noopener" class="yt-item" style="display:block;">
+        <div class="yt-thumb" style="aspect-ratio:16/9;">
+          <img src="https://img.youtube.com/vi/9NZsoHThV0M/maxresdefault.jpg" alt="Sage Takes Thyme">
+          <div class="yt-play">▶</div>
+        </div>
+      </a>
+      <div class="pod-detail">
+        <span class="proj-role">Producer &amp; Director</span>
+        <h3>Sage Takes <span class="hand">Thyme</span></h3>
+        <p class="proj-desc">This is not a cooking show, but it will nourish your soul. Sage Takes Thyme expands the regional table, bringing in more voices, more lived realities, and more difficult questions shaping the Arab world and its diaspora today. We dive into the forces influencing women's lives across the region: power, labor, technology, identity, resistance, and the politics of visibility. We examine not only what is changing, but who is paying the price, and who is rewriting the rules.</p>
+        <a class="pod-link" href="https://www.youtube.com/watch?v=9NZsoHThV0M&t=45s" target="_blank" rel="noopener">Listen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="section" id="editorial">
+  <div class="section-head">
+    <div class="section-label">Editorial</div>
+    <h2 class="section-title"><span class="hand">Editorial</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="ed-grid">
+
+      <a class="ed-card" href="https://www.dazed.me/music/voices-from-the-brink-the-afro-arab-sound-of-al-multaqa" target="_blank" rel="noopener">
+        <div class="ed-thumb">
+          <image-slot id="A-ed-brink" placeholder="Voices From The Brink — Dazed MENA"></image-slot>
+        </div>
+        <span class="ed-cat">Essay</span>
+        <div class="ed-title">Voices From <span class="hand">The Brink</span></div>
+        <div class="ed-pub"><img src="logos/dazed-mena.png" alt="Dazed MENA"></div>
+      </a>
+
+      <a class="ed-card" href="#">
+        <div class="ed-thumb">
+          <image-slot id="A-ed-nike" placeholder="Nike campaign"></image-slot>
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title"><span class="hand">Nike</span></div>
+        <div class="ed-pub"><span class="ed-pub-name">Nike</span></div>
+      </a>
+
+      <a class="ed-card" href="https://www.instagram.com/p/CWBD4UahKfG/" target="_blank" rel="noopener">
+        <div class="ed-thumb">
+          <image-slot id="A-ed-diesel" placeholder="Diesel campaign"></image-slot>
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title"><span class="hand">Diesel</span></div>
+        <div class="ed-pub"><span class="ed-pub-name">Diesel</span></div>
+      </a>
+
+      <a class="ed-card" href="https://www.instagram.com/p/C2wyQn4p8sV/" target="_blank" rel="noopener">
+        <div class="ed-thumb">
+          <image-slot id="A-ed-lyra" placeholder="Lyra Modest"></image-slot>
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title">Lyra <span class="hand">Modest</span></div>
+        <div class="ed-pub"><span class="ed-pub-name">Lyra Modest</span></div>
+      </a>
+
+      <a class="ed-card" href="#">
+        <div class="ed-thumb">
+          <image-slot id="A-ed-pinko" placeholder="Pinko campaign"></image-slot>
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title">Pinko</div>
+        <div class="ed-pub"><span class="ed-pub-name">Pinko</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="social">
+  <div class="section-head">
+    <div class="section-label">Features</div>
+    <h2 class="section-title"><span class="hand">Features</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="reel-scroll">
+      <a class="reel-item" href="https://www.instagram.com/p/CR35q48I4I2/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><image-slot id="A-reel-maya" placeholder="Maya Moumne"></image-slot></div>
+        <div class="reel-title">Maya <span class="hand">Moumne</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/CjNGpQZAwox/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><img src="may calamawy.jpg" alt="May Calamawy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="reel-title">May <span class="hand">Calamawy</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/Clye5fdpkFA/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><image-slot id="A-reel-watersports" placeholder="Women in Water Sports"></image-slot></div>
+        <div class="reel-title">Women in <span class="hand">Water Sports</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/CqX0xqloa6O/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><image-slot id="A-reel-scotch" placeholder="Scotch &amp; Soda"></image-slot></div>
+        <div class="reel-title">Scotch <span class="hand">&amp; Soda</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/CrGaI_MJtnb/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><img src="bayan dahdah.jpg" alt="Bayan Dahdah" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="reel-title">Bayan <span class="hand">Dahdah</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/C1mWlNJpBJh/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><image-slot id="A-reel-celine" placeholder="Celine Semaan"></image-slot></div>
+        <div class="reel-title">Celine <span class="hand">Semaan</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/DQwLdmriIRf/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><image-slot id="A-reel-stt" placeholder="Sage Takes Thyme"></image-slot></div>
+        <div class="reel-title">Sage Takes <span class="hand">Thyme</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/DPTKPkhCAT0/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><image-slot id="A-reel-juno" placeholder="Juno"></image-slot></div>
+        <div class="reel-title"><span class="hand">Juno</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+      <a class="reel-item" href="https://www.instagram.com/p/C2wyQn4p8sV/" target="_blank" rel="noopener">
+        <div class="reel-thumb"><image-slot id="A-reel-lyra" placeholder="Lyra Modest"></image-slot></div>
+        <div class="reel-title">Lyra <span class="hand">Modest</span></div>
+        <span class="reel-platform">Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section" id="events">
+  <div class="section-head">
+    <div class="section-label">Events &amp; Curation</div>
+    <h2 class="section-title">Cultural <span class="hand">events</span> &amp; programming.</h2>
+  </div>
+  <div class="section-body">
+    <div class="events-pair">
+      <a class="event-card" href="#" target="_blank" rel="noopener">
+        <image-slot id="A-evt-ddw" placeholder="Freedom By Design — Dubai Design Week" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="event-info">
+          <h5>Freedom By <span class="hand">Design</span></h5>
+          <div class="event-venue">Dubai Design Week</div>
+        </div>
+      </a>
+      <a class="event-card" href="#" target="_blank" rel="noopener">
+        <image-slot id="A-evt-soledxb" placeholder="Rhyme, Rhythm, Respect — SoleDXB" style="width:100%; aspect-ratio: 4/5;"></image-slot>
+        <div class="event-info">
+          <h5>Rhyme, Rhythm, <span class="hand">Respect</span></h5>
+          <div class="event-venue">SoleDXB</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTING -->
+<section class="section" id="consulting">
+  <div class="section-head">
+    <div class="section-label">Consulting</div>
+    <h2 class="section-title">Narrative &amp; creative <span class="hand">consulting</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="consult-intro">
+      <p>I work with brands, platforms, and creative teams on narrative development, editorial strategy, and <span class="hand">culturally grounded</span> storytelling. My consulting work focuses on helping projects strengthen clarity, emotional resonance, and audience connection from early development through execution.</p>
+    </div>
+    <div class="services-grid">
+      <div>
+        <div class="cap-group-title">Narrative &amp; Editorial</div>
+        <ul class="cap-list">
+          <li>Story development</li>
+          <li>Editorial refinement</li>
+          <li>Script feedback</li>
+          <li>Narrative structuring</li>
+          <li>Story world development</li>
+        </ul>
+      </div>
+      <div>
+        <div class="cap-group-title">Creative Strategy</div>
+        <ul class="cap-list">
+          <li>Creative direction</li>
+          <li>Content development</li>
+          <li>Cultural and audience insight</li>
+          <li>Research-driven storytelling</li>
+          <li>Format and platform strategy</li>
+        </ul>
+      </div>
+      <div>
+        <div class="cap-group-title">Production &amp; Development</div>
+        <ul class="cap-list">
+          <li>Development consulting</li>
+          <li>Creative production systems</li>
+          <li>Post-production feedback</li>
+          <li>Creative team alignment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <h2>Let's work<br><span class="hand">together.</span></h2>
+    <div class="contact-links">
+      <a href="mailto:rythmale@gmail.com"><span>rythmale@gmail.com</span><span class="arrow">email</span></a>
+      <a href="https://www.instagram.com/rythmae/" target="_blank" rel="noopener"><span>@rythmae</span><span class="arrow">instagram</span></a>
+      <a href="tel:+971561098629"><span>+971 56 109 8629</span><span class="arrow">phone</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© Rythma Ekanayake</span>
+  <span class="hand">made with love</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+</body>
+</html>
