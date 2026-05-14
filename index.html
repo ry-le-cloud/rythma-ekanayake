@@ -51,27 +51,28 @@
 
   /* ---- HERO ---- */
   .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    overflow: hidden;
-  }
-  .hero-left {
-    display: flex;
-    align-items: flex-end;
-    padding: 160px 48px 100px;
-    background: var(--bg);
-  }
-  .hero-right {
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 160px 48px 100px;
     overflow: hidden;
   }
-  .hero-right img {
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center center;
     display: block;
+  }
+  .hero-left {
+    position: relative;
+    z-index: 1;
   }
   .hero h1 {
     font-family: var(--display);
@@ -81,14 +82,33 @@
     margin: 0;
     letter-spacing: 0.005em;
     text-transform: uppercase;
+    color: rgba(255, 248, 242, 0.88);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.18);
   }
-  .hero h1 .hand {
-    font-family: var(--hand); font-weight: 600;
+  .hero-greeting {
+    font-family: var(--hand);
+    font-weight: 600;
+    color: #f2c4b8;
+    font-size: clamp(28px, 3.5vw, 52px);
+    display: block;
+    margin-top: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    animation: typing 1.4s steps(12, end) 0.6s forwards;
+  }
+  .hero-greeting::after {
+    content: '|';
     color: var(--accent);
-    font-size: 0.55em; line-height: 1;
-    text-transform: none; letter-spacing: 0;
-    display: inline-block; transform: rotate(-4deg);
-    vertical-align: middle; margin-left: 0.1em;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 2px;
+  }
+  @keyframes typing {
+    to { max-width: 420px; }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
   .hero-meta { padding-bottom: 16px; }
   .hero-tagline {
@@ -110,12 +130,10 @@
   /* ---- SECTION ---- */
   .section { padding: 60px 32px; }
   .section-head {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 64px;
+    display: block;
+    text-align: center;
     max-width: 1440px;
     margin: 0 auto 40px;
-    align-items: start;
   }
   .section-label {
     font-family: var(--display); font-size: 14px; letter-spacing: 0.16em;
@@ -141,13 +159,13 @@
 
   .about-tagline {
     font-family: var(--display);
-    font-size: clamp(18px, 2vw, 26px);
+    font-size: clamp(32px, 3.8vw, 58px);
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-2);
+    letter-spacing: 0.01em;
+    color: var(--ink);
     margin: 0;
-    line-height: 1.3;
+    line-height: 0.95;
   }
   .about-tagline .hand {
     font-family: var(--hand); font-weight: 600;
@@ -157,6 +175,16 @@
   }
 
   /* ---- ABOUT ---- */
+  #about .section-head {
+    display: block;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #about .section-label { margin-bottom: 20px; }
+  #about .section-body { text-align: center; }
+  #about .about-text { margin: 0 auto; }
   .about-text {
     max-width: 900px; margin: 0 auto;
   }
@@ -886,14 +914,15 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="images/Rythma-Hero.png" alt="">
+  </div>
   <div class="hero-left">
     <h1>
       Rythma<br>
-      Ekanayake<span class="hand">— hi there</span>
+      Ekanayake
     </h1>
-  </div>
-  <div class="hero-right">
-    <img src="images/do i feel seen.jpg" alt="">
+    <span class="hero-greeting">— portfolio</span>
   </div>
 </section>
 
@@ -901,7 +930,7 @@
 <section class="section" id="about">
   <div class="section-head">
     <div class="section-label">About</div>
-    <p class="about-tagline">Creative Producer, Director &amp; <span class="hand">Editorial Strategist</span></p>
+    <p class="about-tagline">Creative Producer,<br>Director &amp; <span class="hand">Editorial Strategist</span></p>
   </div>
   <div class="section-body">
     <div class="about-text">
@@ -1015,7 +1044,7 @@
 <section class="section" id="editorial">
   <div class="section-head">
     <div class="section-label">Editorial</div>
-    <h2 class="section-title"><span class="hand">Editorial</span>.</h2>
+    <h2 class="section-title">Editorial.</h2>
   </div>
   <div class="section-body">
     <div class="ed-grid">
