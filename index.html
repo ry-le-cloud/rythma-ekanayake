@@ -76,7 +76,7 @@
   .hero h1 {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(80px, 14vw, 220px);
+    font-size: clamp(60px, 10vw, 160px);
     line-height: 0.88;
     margin: 0;
     letter-spacing: 0.005em;
@@ -138,6 +138,23 @@
     display: inline-block; transform: rotate(-3deg);
   }
   .section-body { max-width: 1440px; margin: 0 auto; }
+
+  .about-tagline {
+    font-family: var(--display);
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-2);
+    margin: 0;
+    line-height: 1.3;
+  }
+  .about-tagline .hand {
+    font-family: var(--hand); font-weight: 600;
+    color: var(--accent); font-size: 1.1em;
+    text-transform: none; letter-spacing: 0;
+    display: inline-block; transform: rotate(-2deg);
+  }
 
   /* ---- ABOUT ---- */
   .about-text {
@@ -884,7 +901,7 @@
 <section class="section" id="about">
   <div class="section-head">
     <div class="section-label">About</div>
-    <h2 class="section-title">Creative Producer, Director &amp; <span class="hand">Editorial Strategist</span></h2>
+    <p class="about-tagline">Creative Producer, Director &amp; <span class="hand">Editorial Strategist</span></p>
   </div>
   <div class="section-body">
     <div class="about-text">
@@ -970,26 +987,84 @@
   </div>
   <div class="section-body">
     <div class="formats-list">
-      <a class="format-row" href="#documentary">
+      <a class="format-row" href="#editorial">
         <span class="fnum">01</span>
-        <span class="fname"><span class="hand">Documentary</span></span>
+        <span class="fname">Editorial <span class="hand">— writing &amp; campaigns</span></span>
+        <span class="farrow">→</span>
+      </a>
+      <a class="format-row" href="#documentary">
+        <span class="fnum">02</span>
+        <span class="fname">Documentary</span>
         <span class="farrow">→</span>
       </a>
       <a class="format-row" href="#podcast">
-        <span class="fnum">02</span>
-        <span class="fname">Podcast</span>
-        <span class="farrow">→</span>
-      </a>
-      <a class="format-row" href="#editorial">
         <span class="fnum">03</span>
-        <span class="fname">Editorial <span class="hand">— writing &amp; campaigns</span></span>
+        <span class="fname">Podcast</span>
         <span class="farrow">→</span>
       </a>
       <a class="format-row" href="#events">
         <span class="fnum">04</span>
-        <span class="fname">Events</span>
+        <span class="fname">Cultural <span class="hand">events</span> &amp; programming</span>
         <span class="farrow">→</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="section" id="editorial">
+  <div class="section-head">
+    <div class="section-label">Editorial</div>
+    <h2 class="section-title"><span class="hand">Editorial</span>.</h2>
+  </div>
+  <div class="section-body">
+    <div class="ed-grid">
+
+      <a class="ed-card" href="https://www.dazed.me/music/voices-from-the-brink-the-afro-arab-sound-of-al-multaqa" target="_blank" rel="noopener">
+        <div class="ed-thumb">
+          <img src="images/editorial/dazed-mena-brink.jpg" alt="Voices From The Brink — Dazed MENA" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
+        </div>
+        <span class="ed-cat">Essay</span>
+        <div class="ed-title">Voices From <span class="hand">The Brink</span></div>
+        <div class="ed-pub"><img src="logos/dazed-mena.png" alt="Dazed MENA"></div>
+      </a>
+
+      <a class="ed-card" href="#">
+        <div class="ed-thumb">
+          <img src="images/editorial/nike.jpg" alt="Nike campaign" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title"><span class="hand">Nike</span></div>
+        <div class="ed-pub"></div>
+      </a>
+
+      <a class="ed-card" href="https://www.instagram.com/p/CWBD4UahKfG/" target="_blank" rel="noopener">
+        <div class="ed-thumb">
+          <img src="images/editorial/diesel.jpg" alt="Diesel campaign" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title"><span class="hand">Diesel</span></div>
+        <div class="ed-pub"></div>
+      </a>
+
+      <a class="ed-card" href="https://www.instagram.com/p/C2wyQn4p8sV/" target="_blank" rel="noopener">
+        <div class="ed-thumb">
+          <img src="images/editorial/lyra-modest.png" alt="Lyra Modest" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title">Lyra <span class="hand">Modest</span></div>
+        <div class="ed-pub"></div>
+      </a>
+
+      <a class="ed-card" href="#">
+        <div class="ed-thumb">
+          <img src="images/editorial/pinko.jpg" alt="Pinko campaign" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
+        </div>
+        <span class="ed-cat">Campaign</span>
+        <div class="ed-title">Pinko</div>
+        <div class="ed-pub"></div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -1095,64 +1170,6 @@
         <p class="proj-desc">This is not a cooking show, but it will nourish your soul. Sage Takes Thyme expands the regional table, bringing in more voices, more lived realities, and more difficult questions shaping the Arab world and its diaspora today. We dive into the forces influencing women's lives across the region: power, labor, technology, identity, resistance, and the politics of visibility. We examine not only what is changing, but who is paying the price, and who is rewriting the rules.</p>
         <a class="pod-link" href="https://www.youtube.com/watch?v=9NZsoHThV0M&t=45s" target="_blank" rel="noopener">Listen →</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDITORIAL -->
-<section class="section" id="editorial">
-  <div class="section-head">
-    <div class="section-label">Editorial</div>
-    <h2 class="section-title"><span class="hand">Editorial</span>.</h2>
-  </div>
-  <div class="section-body">
-    <div class="ed-grid">
-
-      <a class="ed-card" href="https://www.dazed.me/music/voices-from-the-brink-the-afro-arab-sound-of-al-multaqa" target="_blank" rel="noopener">
-        <div class="ed-thumb">
-          <img src="images/editorial/dazed-mena-brink.jpg" alt="Voices From The Brink — Dazed MENA" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
-        </div>
-        <span class="ed-cat">Essay</span>
-        <div class="ed-title">Voices From <span class="hand">The Brink</span></div>
-        <div class="ed-pub"><img src="logos/dazed-mena.png" alt="Dazed MENA"></div>
-      </a>
-
-      <a class="ed-card" href="#">
-        <div class="ed-thumb">
-          <img src="images/editorial/nike.jpg" alt="Nike campaign" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
-        </div>
-        <span class="ed-cat">Campaign</span>
-        <div class="ed-title"><span class="hand">Nike</span></div>
-        <div class="ed-pub"></div>
-      </a>
-
-      <a class="ed-card" href="https://www.instagram.com/p/CWBD4UahKfG/" target="_blank" rel="noopener">
-        <div class="ed-thumb">
-          <img src="images/editorial/diesel.jpg" alt="Diesel campaign" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
-        </div>
-        <span class="ed-cat">Campaign</span>
-        <div class="ed-title"><span class="hand">Diesel</span></div>
-        <div class="ed-pub"></div>
-      </a>
-
-      <a class="ed-card" href="https://www.instagram.com/p/C2wyQn4p8sV/" target="_blank" rel="noopener">
-        <div class="ed-thumb">
-          <img src="images/editorial/lyra-modest.png" alt="Lyra Modest" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
-        </div>
-        <span class="ed-cat">Campaign</span>
-        <div class="ed-title">Lyra <span class="hand">Modest</span></div>
-        <div class="ed-pub"></div>
-      </a>
-
-      <a class="ed-card" href="#">
-        <div class="ed-thumb">
-          <img src="images/editorial/pinko.jpg" alt="Pinko campaign" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.visibility='hidden'">
-        </div>
-        <span class="ed-cat">Campaign</span>
-        <div class="ed-title">Pinko</div>
-        <div class="ed-pub"></div>
-      </a>
-
     </div>
   </div>
 </section>
