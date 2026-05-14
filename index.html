@@ -53,6 +53,29 @@
   .hero {
     padding: 160px 32px 100px;
     border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #ffffff 40%, rgba(255,255,255,0.6) 65%, rgba(255,255,255,0) 100%);
   }
   .hero-grid {
     display: grid;
@@ -61,6 +84,9 @@
     align-items: end;
     max-width: 1440px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    width: 100%;
   }
   .hero h1 {
     font-family: var(--display);
@@ -808,15 +834,15 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="images/do i feel seen.jpg" alt="">
+  </div>
   <div class="hero-grid">
     <div>
       <h1>
         Rythma<br>
         Ekanayake<span class="hand">— hi there</span>
       </h1>
-    </div>
-    <div class="hero-meta">
-      <div class="hero-tagline">Creative Producer, Director &amp; <span class="hand">Editorial Strategist</span></div>
     </div>
   </div>
 </section>
@@ -825,12 +851,11 @@
 <section class="section" id="about">
   <div class="section-head">
     <div class="section-label">About</div>
+    <h2 class="section-title">Creative Producer, Director &amp; <span class="hand">Editorial Strategist</span></h2>
   </div>
   <div class="section-body">
     <div class="about-text">
-      <p>I work across film, digital media, and editorial storytelling, developing <span class="hand">narrative-driven</span> work from concept through execution. With a background in philosophy and nearly a decade in media, I'm drawn to stories rooted in culture, identity, and human experience.</p>
-      <p>My practice spans creative direction, production, curation, and editorial development. I approach storytelling as both a creative and structural process — shaping the perspective, tone, and emotional rhythm of a project as much as its final form.</p>
-      <p>Alongside producing and directing, I work closely with narrative development and editorial refinement, helping build work that feels culturally grounded, <span class="hand">emotionally intelligent</span>, and deeply human.</p>
+      <p>I work across film, digital media, and editorial storytelling, developing <span class="hand">narrative-driven</span> work from concept through execution. With a background in philosophy and a decade in media, I'm drawn to stories rooted in culture, identity, and human experience.</p>
     </div>
   </div>
 </section>
