@@ -464,6 +464,7 @@
   /* ---- EVENTS ---- */
   .events-pair {
     display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    max-width: 1440px;
   }
   .event-card { display: block; color: inherit; text-decoration: none; transition: opacity .2s; }
   .event-card:hover { opacity: 0.8; }
@@ -490,6 +491,56 @@
     color: var(--ink-3);
     margin-top: 4px;
   }
+  /* ---- EVENT GALLERY ---- */
+  .event-gallery {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+  }
+  .gallery-track {
+    display: flex;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .gallery-track::-webkit-scrollbar { display: none; }
+  .gallery-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    height: 100%;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  .gallery-slide img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .gallery-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.88); border: none;
+    width: 36px; height: 36px; border-radius: 50%;
+    cursor: pointer; font-size: 20px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2; transition: background .15s;
+  }
+  .gallery-btn:hover { background: #fff; }
+  .gallery-prev { left: 12px; }
+  .gallery-next { right: 12px; }
+  .gallery-dots {
+    position: absolute; bottom: 12px;
+    left: 50%; transform: translateX(-50%);
+    display: flex; gap: 6px; z-index: 2;
+  }
+  .gallery-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer; border: none; padding: 0;
+    transition: background .2s;
+  }
+  .gallery-dot.active { background: #fff; }
+
   @media (max-width: 900px) {
     .events-pair { grid-template-columns: 1fr; gap: 32px; }
   }
@@ -1171,20 +1222,44 @@
   </div>
   <div class="section-body">
     <div class="events-pair">
-      <a class="event-card" href="#" target="_blank" rel="noopener">
-        <img src="images/events/dubai-design-week.jpg" alt="Freedom By Design — Dubai Design Week" style="width:100%; aspect-ratio: 4/5; object-fit:cover; display:block;" onerror="this.style.visibility='hidden'">
+      <div class="event-card">
+        <div class="event-gallery">
+          <div class="gallery-track">
+            <div class="gallery-slide"><img src="images/events/dubai-design-week/slide-1.jpg" alt="Freedom By Design" onerror="this.style.visibility='hidden'"></div>
+            <div class="gallery-slide"><img src="images/events/dubai-design-week/slide-2.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/dubai-design-week/slide-3.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/dubai-design-week/slide-4.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/dubai-design-week/slide-5.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/dubai-design-week/slide-6.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+          </div>
+          <button class="gallery-btn gallery-prev">&#8249;</button>
+          <button class="gallery-btn gallery-next">&#8250;</button>
+          <div class="gallery-dots"></div>
+        </div>
         <div class="event-info">
           <h5>Freedom By <span class="hand">Design</span></h5>
           <div class="event-venue">Dubai Design Week</div>
         </div>
-      </a>
-      <a class="event-card" href="#" target="_blank" rel="noopener">
-        <img src="images/events/soledxb.jpg" alt="Rhyme, Rhythm, Respect — SoleDXB" style="width:100%; aspect-ratio: 4/5; object-fit:cover; display:block;" onerror="this.style.visibility='hidden'">
+      </div>
+      <div class="event-card">
+        <div class="event-gallery">
+          <div class="gallery-track">
+            <div class="gallery-slide"><img src="images/events/soledxb/slide-1.jpg" alt="Rhyme, Rhythm, Respect" onerror="this.style.visibility='hidden'"></div>
+            <div class="gallery-slide"><img src="images/events/soledxb/slide-2.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/soledxb/slide-3.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/soledxb/slide-4.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/soledxb/slide-5.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+            <div class="gallery-slide"><img src="images/events/soledxb/slide-6.jpg" alt="" onerror="this.closest('.gallery-slide').remove()"></div>
+          </div>
+          <button class="gallery-btn gallery-prev">&#8249;</button>
+          <button class="gallery-btn gallery-next">&#8250;</button>
+          <div class="gallery-dots"></div>
+        </div>
         <div class="event-info">
           <h5>Rhyme, Rhythm, <span class="hand">Respect</span></h5>
           <div class="event-venue">SoleDXB</div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1250,6 +1325,57 @@
   <span class="hand">made with love</span>
   <a href="#top">Back to top ↑</a>
 </footer>
+
+<script>
+  document.querySelectorAll('.event-gallery').forEach(gallery => {
+    const track = gallery.querySelector('.gallery-track');
+    const dotsContainer = gallery.querySelector('.gallery-dots');
+    const prevBtn = gallery.querySelector('.gallery-prev');
+    const nextBtn = gallery.querySelector('.gallery-next');
+
+    function getSlides() {
+      return Array.from(gallery.querySelectorAll('.gallery-slide'));
+    }
+
+    function currentIndex() {
+      return Math.round(track.scrollLeft / track.offsetWidth);
+    }
+
+    function goTo(i) {
+      const slides = getSlides();
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: i * track.offsetWidth, behavior: 'smooth' });
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      getSlides().forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+      const single = getSlides().length <= 1;
+      prevBtn.style.display = single ? 'none' : '';
+      nextBtn.style.display = single ? 'none' : '';
+      dotsContainer.style.display = single ? 'none' : '';
+    }
+
+    function updateDots() {
+      const i = currentIndex();
+      dotsContainer.querySelectorAll('.gallery-dot').forEach((dot, j) => {
+        dot.classList.toggle('active', j === i);
+      });
+    }
+
+    setTimeout(buildDots, 300);
+
+    track.addEventListener('scroll', updateDots, { passive: true });
+    prevBtn.addEventListener('click', () => goTo(currentIndex() - 1));
+    nextBtn.addEventListener('click', () => goTo(currentIndex() + 1));
+  });
+</script>
 
 </body>
 </html>
