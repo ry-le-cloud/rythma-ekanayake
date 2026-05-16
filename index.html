@@ -166,6 +166,9 @@
   /* ---- SECTION ---- */
   .section { padding: 60px 32px; }
   .section--hero-top { padding: 60px 0 0; }
+  @media (max-width: 900px) {
+    .section--hero-top { padding: 60px 32px 0; }
+  }
   .section-head {
     display: block;
     text-align: center;
@@ -472,10 +475,18 @@
   }
   .pod-link:hover { opacity: 0.65; }
   @media (max-width: 900px) {
-    .pod-hero { aspect-ratio: 9/16; }
-    .pod-detail { padding: 24px; }
-    .pod-detail h3 { font-size: clamp(36px, 8vw, 56px); }
-    .pod-detail .proj-desc { display: none; }
+    .pod-hero { aspect-ratio: auto; overflow: visible; }
+    .pod-hero img { aspect-ratio: 4/5; width: 100%; object-fit: cover; object-position: center top; height: auto; }
+    .pod-detail {
+      position: static;
+      background: var(--bg); color: var(--ink);
+      padding: 24px 0 0;
+    }
+    .pod-detail .proj-role { color: var(--accent); font-size: 18px; }
+    .pod-detail h3 { font-size: clamp(36px, 8vw, 56px); color: var(--ink); margin-bottom: 12px; }
+    .pod-detail .proj-desc { color: var(--ink-2); }
+    .pod-link { color: var(--accent); border-bottom-color: var(--accent); }
+    .pod-hero::after { display: none; }
   }
 
   /* reel scroll */
@@ -945,6 +956,7 @@
     .doc-intro { grid-template-columns: 1fr; gap: 12px; }
     .doc-intro > div:first-child { justify-content: flex-start; }
     .doc-intro h3 { font-size: clamp(22px, 6vw, 32px); letter-spacing: 0.04em; }
+    #events .section-title { font-size: clamp(32px, 8vw, 44px); }
     .section-head { grid-template-columns: 1fr; gap: 16px; }
     .pod-grid, .events-list, .campaign-feature { grid-template-columns: 1fr 1fr; }
     .clients-grid { grid-template-columns: 1fr 1fr 1fr; }
