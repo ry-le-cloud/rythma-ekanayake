@@ -896,26 +896,17 @@
     display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 48px; border-top: 1px solid var(--ink); padding-top: 40px;
   }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 40px; border-top: 1px solid var(--ink); padding-top: 40px;
+  .services-list {
+    list-style: none; padding: 0; margin: 0 auto;
+    max-width: 540px; border-top: 1px solid var(--rule);
   }
-  .cap-group-title {
-    font-family: var(--display); font-size: 13px;
-    letter-spacing: 0.18em; color: var(--ink-3);
-    text-transform: uppercase; margin-bottom: 20px;
-    padding-bottom: 12px; border-bottom: 1px solid var(--ink);
-  }
-  .cap-list {
-    list-style: none; padding: 0; margin: 0;
-    display: flex; flex-direction: column;
-  }
-  .cap-list li {
-    font-family: var(--display);
-    font-size: clamp(15px, 1.4vw, 19px);
-    text-transform: uppercase; letter-spacing: 0.04em;
-    padding: 12px 0; border-bottom: 1px solid var(--rule);
-    color: var(--ink);
+  .services-list li {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(13px, 1.1vw, 15px);
+    color: var(--ink-2);
+    padding: 13px 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
   }
   @media (max-width: 900px) {
     .cap-grid, .services-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1450,37 +1441,22 @@
     <div class="consult-intro">
       <p>I work with brands, platforms, and creative teams on narrative development, editorial strategy, and <span class="hand">culturally grounded</span> storytelling. My consulting work focuses on helping projects strengthen clarity, emotional resonance, and audience connection from early development through execution.</p>
     </div>
-    <div class="services-grid">
-      <div>
-        <div class="cap-group-title">Narrative &amp; Editorial</div>
-        <ul class="cap-list">
-          <li>Story development</li>
-          <li>Editorial refinement</li>
-          <li>Script feedback</li>
-          <li>Narrative structuring</li>
-          <li>Story world development</li>
-        </ul>
-      </div>
-      <div>
-        <div class="cap-group-title">Creative Strategy</div>
-        <ul class="cap-list">
-          <li>Creative direction</li>
-          <li>Content development</li>
-          <li>Cultural and audience insight</li>
-          <li>Research-driven storytelling</li>
-          <li>Format and platform strategy</li>
-        </ul>
-      </div>
-      <div>
-        <div class="cap-group-title">Production &amp; Development</div>
-        <ul class="cap-list">
-          <li>Development consulting</li>
-          <li>Creative production systems</li>
-          <li>Post-production feedback</li>
-          <li>Creative team alignment</li>
-        </ul>
-      </div>
-    </div>
+    <ul class="services-list">
+      <li>Story development</li>
+      <li>Editorial refinement</li>
+      <li>Script feedback</li>
+      <li>Narrative structuring</li>
+      <li>Story world development</li>
+      <li>Creative direction</li>
+      <li>Content development</li>
+      <li>Cultural and audience insight</li>
+      <li>Research-driven storytelling</li>
+      <li>Format and platform strategy</li>
+      <li>Development consulting</li>
+      <li>Creative production systems</li>
+      <li>Post-production feedback</li>
+      <li>Creative team alignment</li>
+    </ul>
   </div>
 </section>
 
